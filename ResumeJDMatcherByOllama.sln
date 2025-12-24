@@ -1,0 +1,30 @@
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResumeMatcher", "ResumeMatcher\ResumeMatcher.csproj", "{78BA5070-B156-8402-59B3-36D479438D8F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResumeMatcherUI", "ResumeMatcherUI\ResumeMatcherUI.csproj", "{59F6DB5B-A165-4DBE-92E9-FF13EC2341EA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{78BA5070-B156-8402-59B3-36D479438D8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78BA5070-B156-8402-59B3-36D479438D8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78BA5070-B156-8402-59B3-36D479438D8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78BA5070-B156-8402-59B3-36D479438D8F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59F6DB5B-A165-4DBE-92E9-FF13EC2341EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59F6DB5B-A165-4DBE-92E9-FF13EC2341EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59F6DB5B-A165-4DBE-92E9-FF13EC2341EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59F6DB5B-A165-4DBE-92E9-FF13EC2341EA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B353AE74-88DE-4D81-86A8-A290B10A5FD5}
+	EndGlobalSection
+EndGlobal

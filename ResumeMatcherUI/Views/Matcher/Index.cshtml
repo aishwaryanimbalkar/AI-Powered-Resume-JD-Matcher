@@ -1,0 +1,37 @@
+@model MatchResultViewModel
+
+<form asp-action="Match"
+      asp-controller="Matcher"
+      method="post"
+      enctype="multipart/form-data">
+
+    <input type="file" name="resume" required /><br /><br />
+
+    <textarea name="jobDescription" rows="6" cols="70" required></textarea><br /><br />
+
+    <button type="submit">Match</button>
+</form>
+
+@* @if (ViewBag.Result != null)
+{
+    <hr />
+    <h3>Result</h3>
+    <pre>@ViewBag.Result</pre>
+} *@
+@* @if (ViewBag.Result != null)
+{
+    <div class="result-box">
+        <h4>Result</h4>
+        <pre>@ViewBag.Result</pre>
+    </div>
+} *@
+@if (Model != null)
+{
+    <div class="result-box">
+        <strong>Fit Score:</strong>
+        <span class="score">@Model.FitScore</span>/100
+        <br />
+        <strong>Explanation:</strong>
+        <span>@Model.Explanation</span>
+    </div>
+}
