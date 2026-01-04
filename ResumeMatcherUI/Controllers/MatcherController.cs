@@ -31,22 +31,26 @@ public class MatcherController : Controller
             form.Add(new StringContent(jobDescription), "jobDescription");
 
             var response = await _httpClient.PostAsync("/api/match", form);
+
+            if (!response.IsSuccessStatusCode)
+            {
+              var err = await response.Content.ReadAsStringAsync();
+              TempData["ErrorMessage"] = "API Error: " + err;
+              return View("Index");
+            }
             var result = await response.Content.ReadAsStringAsync();
 
             //ViewBag.Result = result;
             //return View("Index"); 
-            var matchResult = System.Text.Json.JsonSerializer.Deserialize<MatchResultViewModel>(result,
-            new System.Text.Json.JsonSerializerOptions
-            {
-               PropertyNameCaseInsensitive = true
-            }
-            );
+            var matchResult = System.Text.Json.JsonSerializer.Deserialize<MatchResultViewModel>(result,new System.Text.Json.JsonSerializerOptions{PropertyNameCaseInsensitive = true});
             return View("Index", matchResult);
 
         }
         catch (Exception ex)
         {
-            ViewBag.Result = "Error: " + ex.Message;
+            // ViewBag.Result = "Error: " + ex.Message;
+            // return View("Index");
+            TempData["ErrorMessage"] = "Could not connect to the AI service. Is Ollama running?";
             return View("Index");
         }
     }

@@ -1,9 +1,6 @@
-@model MatchResultViewModel
+@* @model MatchResultViewModel
 
-<form asp-action="Match"
-      asp-controller="Matcher"
-      method="post"
-      enctype="multipart/form-data">
+<form asp-action="Match"  asp-controller="Matcher"  method="post"  enctype="multipart/form-data">
 
     <input type="file" name="resume" required /><br /><br />
 
@@ -12,19 +9,6 @@
     <button type="submit">Match</button>
 </form>
 
-@* @if (ViewBag.Result != null)
-{
-    <hr />
-    <h3>Result</h3>
-    <pre>@ViewBag.Result</pre>
-} *@
-@* @if (ViewBag.Result != null)
-{
-    <div class="result-box">
-        <h4>Result</h4>
-        <pre>@ViewBag.Result</pre>
-    </div>
-} *@
 @if (Model != null)
 {
     <div class="result-box">
@@ -34,4 +18,50 @@
         <strong>Explanation:</strong>
         <span>@Model.Explanation</span>
     </div>
-}
+} *@
+
+
+
+@model MatchResultViewModel
+
+
+<div class="matcher-container">
+    
+    <h2>AI-Powered Resume & JD Matcher</h2>
+    
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="error-alert">
+            <strong> Error:</strong> @TempData["ErrorMessage"]
+        </div>
+    }
+
+    <form asp-action="Match" asp-controller="Matcher" method="post" enctype="multipart/form-data">
+        
+        <div class="form-group">
+            <label>Resume (PDF):</label>
+            <input type="file" name="resume" accept=".pdf" required />
+        </div>
+
+        <div class="form-group">
+            <label>Job Description:</label>
+            <textarea name="jobDescription" rows="5"  required></textarea>
+        </div>
+
+        <button type="submit">Match</button>
+    </form>
+
+    @if (Model != null)
+    {
+        <div class="result-box">
+            <div>
+                <strong>Fit Score:</strong> 
+                <span class="score-value">@Model.FitScore/100</span>
+            </div>
+            <div class="explanation-text">
+                <strong>Explanation:</strong>
+                <p>@Model.Explanation</p>
+            </div>
+        </div>
+    }
+</div>
